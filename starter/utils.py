@@ -20,11 +20,11 @@ def get_device():
         device = torch.device("cuda:0")
     else:
         device = torch.device("cpu")
-    return device
+    return torch.device("cpu")
 
 
 def get_points_renderer(
-    image_size=512, device=None, radius=0.01, background_color=(1, 1, 1)
+    image_size=512, device=torch.device("cpu"), radius=0.01, background_color=(1, 1, 1)
 ):
     """
     Returns a Pytorch3D renderer for point clouds.
@@ -39,11 +39,12 @@ def get_points_renderer(
     Returns:
         PointsRenderer.
     """
-    if device is None:
-        if torch.cuda.is_available():
-            device = torch.device("cuda:0")
-        else:
-            device = torch.device("cpu")
+    # if device is None:
+    #     if torch.cuda.is_available():
+    #         device = torch.device("cuda:0")
+    #     else:
+    #         device = torch.device("cpu")
+    device = torch.device("cpu")
     raster_settings = PointsRasterizationSettings(image_size=image_size, radius=radius,)
     renderer = PointsRenderer(
         rasterizer=PointsRasterizer(raster_settings=raster_settings),
@@ -52,7 +53,7 @@ def get_points_renderer(
     return renderer
 
 
-def get_mesh_renderer(image_size=512, lights=None, device=None):
+def get_mesh_renderer(image_size=512, lights=None, device=torch.device("cpu")):
     """
     Returns a Pytorch3D Mesh Renderer.
 
@@ -62,11 +63,12 @@ def get_mesh_renderer(image_size=512, lights=None, device=None):
         device (torch.device): The torch device to use (CPU or GPU). If not specified,
             will automatically use GPU if available, otherwise CPU.
     """
-    if device is None:
-        if torch.cuda.is_available():
-            device = torch.device("cuda:0")
-        else:
-            device = torch.device("cpu")
+    # if device is None:
+    #     if torch.cuda.is_available():
+    #         device = torch.device("cuda:0")
+    #     else:
+    #         device = torch.device("cpu")
+    torch.device("cpu")
     raster_settings = RasterizationSettings(
         image_size=image_size, blur_radius=0.0, faces_per_pixel=1,
     )
