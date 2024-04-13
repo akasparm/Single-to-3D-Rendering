@@ -16,10 +16,6 @@ def get_device():
     """
     Checks if GPU is available and returns device accordingly.
     """
-    if torch.cuda.is_available():
-        device = torch.device("cuda:0")
-    else:de a gif that sh
-        device = torch.device("cpu")
     return torch.device("cpu")
 
 
@@ -68,7 +64,7 @@ def get_mesh_renderer(image_size=512, lights=None, device=torch.device("cpu")):
     #         device = torch.device("cuda:0")
     #     else:
     #         device = torch.device("cpu")
-    torch.device("cpu")
+    device = torch.device("cpu")
     raster_settings = RasterizationSettings(
         image_size=image_size, blur_radius=0.0, faces_per_pixel=1,
     )
