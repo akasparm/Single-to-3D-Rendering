@@ -1,4 +1,7 @@
 # CMSC848F - Assignment 1: 3D-Rendering with PyTorch3D
+
+## View HTML Web Page [here](web_page.md.html)
+
 **Credit**: This assignment is modified from [CMU 3D Vision course](https://learning3d.github.io/). 
 
 Goals: In this assignment, you will learn the basics of rendering with PyTorch3D,
