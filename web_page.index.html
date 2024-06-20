@@ -1,0 +1,155 @@
+<meta charset="utf-8" emacsmode="-- markdown -">
+*CMSC848F - Assignment 1*
+*Submitted By: Akashkumar Parmar*
+*UID: 118737430*
+
+
+
+Rendering your first mesh
+--------------------------------------------------------------------------------
+
+<img src="results/render_cow.jpg" alt="Cow Image" width="300">
+
+Practicing with Cameras
+===============================================================================
+
+360-degree Renders
+--------------------------------------------------------------------------------
+
+<img src="results/rotate_cow.gif" alt="Cow 360° Roatation" width="300">
+
+
+Re-creating the Dolly Zoom
+--------------------------------------------------------------------------------
+
+<img src="results/dolly_zoom.gif" alt="Cow Dolly Zoom" width="300">
+
+
+Practicing with Meshes
+===============================================================================
+
+Constructing a Tetrahedron
+--------------------------------------------------------------------------------
+
+<img src="results/tetrahedron.gif" alt="Tetrahedron" width="300">
+
+In the .gif file, a tetrahedron has been shown. It consists of 4 vertices and 4 triangular faces.
+
+Constructing a Cube
+--------------------------------------------------------------------------------
+
+<img src="results/cube.gif" alt="Cube" width="300">
+
+In the .gif file, a cube has been shown. It consists of 8 vertices and 12 triangular faces (i.e., 6 square faces).
+
+Re-texturing a mesh
+===============================================================================
+
+<img src="results/textured_cow.gif" alt="textured_cow" width="300">
+
+*color1* = torch.tensor([1, 0, 0])
+
+*color2* = torch.tensor([0, 0, 0])
+
+Here the chosen colors are Red and Black. The .gif shows the smooth transition from Red to Black.
+
+Camera Transformations
+===============================================================================
+
+*R_relative* :
+        - A rotation matrix that represents the rotation of the camera around the mesh object.
+        - By changing its value, we can relatively transform the object's orientation.
+
+*T_relative* :
+        - A translation vector that represents the linear translation of the camera with respect to the mesh object. 
+        - By changing its value, we can relatively change object's linear distance from the camera.
+
+
+Transformation 1
+--------------------------------------------------------------------------------
+
+*R_relative* = + 90° @ z-axis
+
+*T_relative* = No translation
+
+<img src="results/transformation1.jpg" alt="Transformation1" width="300">
+
+
+Transformation 2
+--------------------------------------------------------------------------------
+
+*R_relative* = No rotation
+
+*T_relative* = Translation of 3 units along z-axis
+
+<img src="results/transformation2.jpg" alt="Transformation2" width="300">
+
+Pose 3
+--------------------------------------------------------------------------------
+
+*R_relative* = No rotation
+
+*T_relative* = Translation of 0.5 units @ X - Axis, 
+               Translation of -0.5 units @ Y - Axis, 
+               Translation of 0.5 units @ Z - Axis
+
+<img src="results/transformation3.jpg" alt="Transformation3" width="300">
+
+Pose 4
+--------------------------------------------------------------------------------
+
+*R_relative* = 90 degree rotation about y-axis
+
+*T_relative* = Translation of 3 units @ X - Axis
+               Translation of 3 units @ Z - Axis
+
+<img src="results/transformation4.jpg" alt="Transformation4" width="300">
+
+Rendering Generic 3D Representations
+===============================================================================
+
+Rendering Point Clouds from RGB-D Images
+--------------------------------------------------------------------------------
+
+<div>
+        <img src="results/flower_vase1.gif" alt="GIF 1", width ="200">
+        <img src="results/flower_vase2.gif" alt="GIF 2", width ="200">
+        <img src="results/flower_vase_combined.gif" alt="GIF 3", width ="200">
+</div>
+    
+
+Parametric Functions
+--------------------------------------------------------------------------------
+
+<img src="results/torus.gif" alt="Torus" width="300">
+
+Implicit Surfaces
+--------------------------------------------------------------------------------
+
+<img src="results/torus_implicit.gif" alt="Torus Implicit" width="300">
+
+
+
+Rendering as a point cloud and mesh have their own advantages and their trade-offs with rendering speed, quality, ease of use and memory usage, etc. The usage depends upon the requirements.
+
+
+*1. Rendering Speed:*
+        - In terms of rendering speed, point clouds are faster than meshes. When meshes are higly densed, it requires more computational resources and time.
+
+*2. Rendering Quality:*
+
+        - In terms of quality, meshes generate triangle meshes even for the complex surfaces and represent more details and have better quality.
+
+*3. Ease of Use:*
+
+        - Point clouds are esier to create and manipulate, while meshes require more complex tasks for mesh generation, which leads to difficulty in uasge from a user's perspective.
+
+*4. Memory Usage:*
+
+        - Point clouds are memory efficient as they only store the coordinates, whereas meshes store edge and face connectivity information, which stores more memory.
+
+Besides, based on availability of GPU, CPU and memory, some hardware configurations work better for meshes and others work for point clouds. Also, considering the applications, Point clouds are used in LIDAR, 3D scanning, AR/VR applications, and meshes are used for Computer graphics, FEA, 3D Modelings. 
+Based on the requirements, appropriately point cloud or meshes are chosen considering their own positives and negatives. 
+
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
